@@ -26,6 +26,10 @@ export function Navbar() {
         return () => window.removeEventListener('scroll', handleScroll);
     }, []);
 
+    useEffect(() => {
+        setIsMobileMenuOpen(false);
+    }, [pathname]);
+
     const toggleTheme = () => {
         updateAppearance(appearance === 'dark' ? 'light' : 'dark');
     };
@@ -65,20 +69,23 @@ export function Navbar() {
 
                         {/* Desktop Navigation */}
                         <div className="hidden md:flex items-center justify-center gap-1 flex-1">
-                            {navLinks.map((link) => (
+                            {navLinks.map((link) => {
+                                const isActive = pathname === link.href;
+                                return (
                                 <Link
                                     key={link.href}
                                     href={link.href}
                                     className={cn(
                                         'text-sm font-medium px-4 py-2 rounded-full transition-all hover:bg-muted/50 whitespace-nowrap',
-                                        pathname === link.href
+                                        isActive
                                             ? 'text-primary bg-muted/50 font-semibold'
                                             : 'text-muted-foreground hover:text-foreground'
                                     )}
+                                    aria-current={isActive ? 'page' : undefined}
                                 >
                                     {link.label}
                                 </Link>
-                            ))}
+                            )})}
                         </div>
 
                         {/* Right Actions */}
@@ -108,6 +115,8 @@ export function Navbar() {
                                 onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
                                 className="md:hidden rounded-full"
                                 aria-label="Toggle menu"
+                                aria-expanded={isMobileMenuOpen}
+                                aria-controls="mobile-nav"
                             >
                                 {isMobileMenuOpen ? (
                                     <X className="w-6 h-6" />
@@ -121,7 +130,10 @@ export function Navbar() {
 
                 {/* Mobile Navigation Dropdown */}
                 {isMobileMenuOpen && (
-                    <div className="md:hidden border-t border-border/50 bg-background/95 backdrop-blur-xl animate-fadeInDown">
+                    <div
+                        id="mobile-nav"
+                        className="md:hidden border-t border-border/50 bg-background/95 backdrop-blur-xl animate-fadeInDown"
+                    >
                         <div className="flex flex-col p-4 space-y-2">
                             {navLinks.map((link) => (
                                 <Link

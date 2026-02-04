@@ -4,15 +4,15 @@ import * as React from 'react';
 import { cn } from '@/lib/utils';
 
 const buttonVariants = cva(
-    'inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-full text-sm font-medium transition-all duration-300 disabled:pointer-events-none disabled:opacity-50 active:scale-95',
+    'inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-full text-sm font-medium transition-all duration-300 disabled:pointer-events-none disabled:opacity-50 active:scale-95 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/40 focus-visible:ring-offset-2 focus-visible:ring-offset-background',
     {
         variants: {
             variant: {
-                default: 'bg-gradient-primary text-white shadow-lg shadow-primary/25 hover:shadow-primary/40 hover:-translate-y-0.5',
+                default: 'bg-gradient-primary text-white shadow-lg shadow-primary/20 hover:shadow-primary/35 hover:-translate-y-0.5',
                 destructive: 'bg-destructive text-white shadow hover:bg-destructive/90',
-                outline: 'border-2 border-border bg-background hover:bg-muted hover:border-primary/50 text-foreground',
+                outline: 'border border-border/70 bg-background hover:bg-muted/70 hover:border-primary/40 text-foreground',
                 secondary: 'bg-secondary text-secondary-foreground shadow hover:bg-secondary/80',
-                ghost: 'hover:bg-muted/50 hover:text-primary',
+                ghost: 'text-muted-foreground hover:bg-muted/50 hover:text-foreground',
                 link: 'text-primary underline-offset-4 hover:underline',
             },
             size: {

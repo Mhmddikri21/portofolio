@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { Inter } from 'next/font/google';
+import { Manrope, Space_Grotesk } from 'next/font/google';
 import './globals.css';
 import { Navbar } from '@/components/Navbar';
 import { Footer } from '@/components/Footer';
@@ -7,9 +7,14 @@ import { PageTransition } from '@/components/PageTransition';
 import { SmoothScroll } from '@/components/SmoothScroll';
 import { LanguageProvider } from '@/contexts/LanguageContext';
 
-const inter = Inter({
+const manrope = Manrope({
     subsets: ['latin'],
-    variable: '--font-sans',
+    variable: '--font-body',
+});
+
+const spaceGrotesk = Space_Grotesk({
+    subsets: ['latin'],
+    variable: '--font-display',
 });
 
 export const metadata: Metadata = {
@@ -33,7 +38,7 @@ export default function RootLayout({
 }>) {
     return (
         <html lang="en" className="scroll-smooth">
-            <body className={`${inter.variable} antialiased`}>
+            <body className={`${manrope.variable} ${spaceGrotesk.variable} antialiased`}>
                 <LanguageProvider>
                     <SmoothScroll />
                     <Navbar />

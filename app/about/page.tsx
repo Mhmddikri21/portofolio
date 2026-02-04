@@ -20,7 +20,7 @@ export default function AboutPage() {
             {/* Hero Section */}
             <Section variant="gradient">
                 <div className="grid md:grid-cols-2 gap-12 items-center">
-                    <div className="space-y-6 animate-fadeInLeft">
+                    <div className="space-y-6 animate-slideInLeft">
                         <SectionHeading
                             align="left"
                             subtitle={dict.about.subtitle}
@@ -37,7 +37,7 @@ export default function AboutPage() {
                         </div>
                     </div>
 
-                    <div className="relative animate-fadeInRight group">
+                    <div className="relative animate-slideInRight group">
                         <div className="aspect-square rounded-2xl overflow-hidden bg-gradient-primary relative shadow-2xl skew-y-3 group-hover:skew-y-0 transition-all duration-500 ease-out">
                             <Image
                                 src="/images/img.jpg"

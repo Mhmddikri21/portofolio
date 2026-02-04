@@ -3,7 +3,7 @@
 import { Section } from '@/components/Section';
 import { SectionHeading } from '@/components/SectionHeading';
 import { SERVICES } from '@/lib/constants';
-import { Code, Palette, Layers } from 'lucide-react';
+import { Code, Palette, Layers, Check } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
 
 const iconMap = {
@@ -51,7 +51,7 @@ export default function ServicesPage() {
                                     <ul className="space-y-2">
                                         {service.features.map((feature) => (
                                             <li key={feature} className="flex items-start gap-2 text-sm">
-                                                <span className="text-primary mt-1">✓</span>
+                                                <Check className="w-4 h-4 text-primary mt-0.5 shrink-0" />
                                                 <span className="text-muted-foreground">{feature}</span>
                                             </li>
                                         ))}

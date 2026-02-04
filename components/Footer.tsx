@@ -76,11 +76,10 @@ export function Footer() {
                 <div className="py-6 border-t">
                     <div className="flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-muted-foreground">
                         <p className="flex items-center gap-1">
-                            © {currentYear} {PERSONAL_INFO.name}. All rights reserved.
+                            &copy; {currentYear} {PERSONAL_INFO.name}. All rights reserved.
                         </p>
                         <p className="flex items-center gap-1">
                             Built with <Heart className="w-4 h-4 fill-red-500 text-red-500" />{' '}
-                            using Next.js & React
                         </p>
                     </div>
                 </div>

@@ -43,6 +43,10 @@ export default function Home() {
                             <span className="gradient-text text-glow">{PERSONAL_INFO.name}</span>
                         </h1>
 
+                        <p className="text-xs sm:text-sm uppercase tracking-[0.25em] text-muted-foreground/80 font-semibold">
+                            {dict.hero.role}
+                        </p>
+
                         <p className="text-xl md:text-2xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
                             {dict.hero.description}
                         </p>

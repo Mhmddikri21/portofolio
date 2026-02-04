@@ -45,7 +45,7 @@ export default function ContactPage() {
 
                 <div className="grid md:grid-cols-2 gap-12 mt-12">
                     {/* Contact Info */}
-                    <div className="space-y-8 animate-fadeInLeft">
+                    <div className="space-y-8 animate-slideInLeft">
                         <div>
                             <h3 className="text-2xl font-bold mb-6">{dict.contact.infoTitle}</h3>
                             <div className="space-y-4">
@@ -96,7 +96,7 @@ export default function ContactPage() {
                     </div>
 
                     {/* Contact Form */}
-                    <div className="animate-fadeInRight">
+                    <div className="animate-slideInRight">
                         <form onSubmit={handleSubmit} className="space-y-6">
                             <div>
                                 <label htmlFor="name" className="block text-sm font-medium mb-2">
