@@ -1,0 +1,361 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Base colors - Light theme with modern vibrant palette */
+  --background: 0 0% 100%;
+  --foreground: 240 10% 10%;
+  --card: 0 0% 100%;
+  --card-foreground: 240 10% 10%;
+  --popover: 0 0% 100%;
+  --popover-foreground: 240 10% 10%;
+
+  /* Primary - Vibrant Purple */
+  --primary: 270 70% 50%;
+  --primary-foreground: 0 0% 100%;
+
+  /* Secondary - Electric Blue */
+  --secondary: 220 70% 55%;
+  --secondary-foreground: 0 0% 100%;
+
+  /* Muted */
+  --muted: 240 5% 96%;
+  --muted-foreground: 240 4% 46%;
+
+  /* Accent - Pink/Magenta */
+  --accent: 330 70% 60%;
+  --accent-foreground: 0 0% 100%;
+
+  /* Destructive */
+  --destructive: 0 70% 50%;
+  --destructive-foreground: 0 0% 100%;
+
+  /* Borders and inputs */
+  --border: 240 6% 90%;
+  --input: 240 6% 90%;
+  --ring: 270 70% 50%;
+
+  /* Border radius */
+  --radius: 0.75rem;
+
+  /* Custom Portfolio Gradients */
+  --gradient-primary: linear-gradient(135deg, hsl(270 70% 50%), hsl(220 70% 55%));
+  --gradient-secondary: linear-gradient(135deg, hsl(220 70% 55%), hsl(330 70% 60%));
+  --gradient-rainbow: linear-gradient(135deg, hsl(270 70% 50%), hsl(220 70% 55%), hsl(330 70% 60%));
+}
+
+.dark {
+  /* Base colors - Dark theme */
+  --background: 240 10% 10%;
+  --foreground: 0 0% 98%;
+  --card: 240 10% 13%;
+  --card-foreground: 0 0% 98%;
+  --popover: 240 10% 13%;
+  --popover-foreground: 0 0% 98%;
+
+  /* Primary - Lighter vibrant purple for dark mode */
+  --primary: 270 70% 65%;
+  --primary-foreground: 240 10% 10%;
+
+  /* Secondary - Lighter electric blue */
+  --secondary: 220 70% 60%;
+  --secondary-foreground: 240 10% 10%;
+
+  /* Muted */
+  --muted: 240 10% 20%;
+  --muted-foreground: 240 5% 65%;
+
+  /* Accent - Lighter pink/magenta */
+  --accent: 330 70% 65%;
+  --accent-foreground: 240 10% 10%;
+
+  /* Destructive */
+  --destructive: 0 70% 55%;
+  --destructive-foreground: 0 0% 98%;
+
+  /* Borders and inputs */
+  --border: 240 10% 20%;
+  --input: 240 10% 20%;
+  --ring: 270 70% 65%;
+
+  /* Custom Portfolio Gradients - Dark mode */
+  --gradient-primary: linear-gradient(135deg, hsl(270 70% 65%), hsl(220 70% 60%));
+  --gradient-secondary: linear-gradient(135deg, hsl(220 70% 60%), hsl(330 70% 65%));
+  --gradient-rainbow: linear-gradient(135deg, hsl(270 70% 65%), hsl(220 70% 60%), hsl(330 70% 65%));
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: var(--font-sans), ui-sans-serif, system-ui, sans-serif;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+  }
+
+  p {
+    margin-bottom: 1rem;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 6rem;
+  }
+
+  /* Optimize transitions globally */
+  * {
+    transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  /* Enable GPU acceleration for animations */
+  @media (prefers-reduced-motion: no-preference) {
+
+    .animate-fadeInUp,
+    .animate-fadeInDown,
+    .animate-scaleIn,
+    .animate-slideInLeft,
+    .animate-slideInRight {
+      will-change: transform, opacity;
+    }
+  }
+}
+
+@layer utilities {
+
+  /* Glassmorphism utilities */
+  .glass {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+  }
+
+  .glass-dark {
+    background: rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  /* Gradient text utilities */
+  .gradient-text {
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .gradient-text-secondary {
+    background: var(--gradient-secondary);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .gradient-text-rainbow {
+    background: var(--gradient-rainbow);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  /* Gradient backgrounds */
+  .bg-gradient-primary {
+    background: var(--gradient-primary);
+  }
+
+  .bg-gradient-secondary {
+    background: var(--gradient-secondary);
+  }
+
+  .bg-gradient-rainbow {
+    background: var(--gradient-rainbow);
+  }
+
+  /* Smooth transitions */
+  .transition-smooth {
+    transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  /* Hover lift effect */
+  .hover-lift {
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+      box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    will-change: transform;
+  }
+
+  .hover-lift:hover {
+    transform: translateY(-6px) scale(1.01);
+    box-shadow: 0 16px 32px -12px rgba(0, 0, 0, 0.2);
+  }
+
+  .dark .hover-lift:hover {
+    box-shadow: 0 16px 32px -12px rgba(0, 0, 0, 0.4);
+  }
+
+  /* Glow effects */
+  .glow {
+    box-shadow: 0 0 20px rgba(139, 92, 246, 0.3);
+  }
+
+  .glow-hover:hover {
+    box-shadow: 0 0 30px rgba(139, 92, 246, 0.5);
+  }
+}
+
+/* Custom animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.96);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes gradient-shift {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* Animation classes - Ultra smooth easing */
+.animate-fadeInUp {
+  animation: fadeInUp 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  will-change: transform, opacity;
+}
+
+.animate-fadeInDown {
+  animation: fadeInDown 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  will-change: transform, opacity;
+}
+
+.animate-fadeIn {
+  animation: fadeIn 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  will-change: opacity;
+}
+
+.animate-scaleIn {
+  animation: scaleIn 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  will-change: transform, opacity;
+}
+
+.animate-slideInLeft {
+  animation: slideInLeft 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  will-change: transform, opacity;
+}
+
+.animate-slideInRight {
+  animation: slideInRight 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  will-change: transform, opacity;
+}
+
+.animate-gradient {
+  background-size: 200% 200%;
+  animation: gradient-shift 8s ease infinite;
+}
+
+/* Stagger animation delays */
+.delay-100 {
+  animation-delay: 150ms;
+}
+
+.delay-200 {
+  animation-delay: 250ms;
+}
+
+.delay-300 {
+  animation-delay: 350ms;
+}
+
+.delay-400 {
+  animation-delay: 450ms;
+}
+
+.delay-500 {
+  animation-delay: 550ms;
+}
