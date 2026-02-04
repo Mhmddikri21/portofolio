@@ -29,6 +29,10 @@ export const metadata: Metadata = {
         description: 'Passionate developer with expertise in building modern web applications',
         siteName: 'Portofolio',
     },
+    icons: {
+        icon: [{ url: '/favicon.svg', type: 'image/svg+xml' }],
+        shortcut: '/favicon.svg',
+    },
 };
 
 export default function RootLayout({
