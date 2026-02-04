@@ -18,16 +18,16 @@ const spaceGrotesk = Space_Grotesk({
 });
 
 export const metadata: Metadata = {
-    title: 'Muhamad Dikri - Full Stack Developer',
+    title: 'Portofolio',
     description: 'Passionate developer with expertise in building modern web applications. Portfolio showcasing projects and skills.',
     keywords: ['Full Stack Developer', 'Web Development', 'React', 'Next.js', 'Laravel', 'TypeScript'],
     authors: [{ name: 'Muhamad Dikri' }],
     openGraph: {
         type: 'website',
         locale: 'en_US',
-        title: 'Muhamad Dikri - Full Stack Developer',
+        title: 'Portofolio',
         description: 'Passionate developer with expertise in building modern web applications',
-        siteName: 'Muhamad Dikri Portfolio',
+        siteName: 'Portofolio',
     },
 };
 
