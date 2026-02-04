@@ -40,7 +40,7 @@ export default function AboutPage() {
                     <div className="relative animate-fadeInRight group">
                         <div className="aspect-square rounded-2xl overflow-hidden bg-gradient-primary relative shadow-2xl skew-y-3 group-hover:skew-y-0 transition-all duration-500 ease-out">
                             <Image
-                                src="/images/about-profile.png"
+                                src="/images/img.jpg"
                                 alt="Muhamad Dikri - Full Stack Developer"
                                 fill
                                 className="object-cover hover:scale-105 transition-transform duration-700"
